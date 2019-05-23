@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Josephus Problem</title>
+  </head>
+  <link rel="stylesheet" href="slideStyle.css">
+
+
+<body>
+
+<div class = "searchBar">
+  <ul>
+    <li><a href="http://index.html">Home</a></li>
+    <li><a href="http://exp.html">Explain</a></li>
+    <li><a href="http://about.html">About</a></li>
+  </ul>
+</div>
+
+<header class = "title">Josephus Problem</header>
+
+<ul class="flex-container flex-start">
+  <li class="flex-item">
+<div class="slider">
+
+  <a href="#slide-1">1</a>
+  <a href="#slide-2">2</a>
+  <a href="#slide-3">3</a>
+  <a href="#slide-4">4</a>
+  <a href="#slide-5">5</a>
+  <a href="#slide-6">6</a>
+  <a href="#slide-7">7</a>
+  <a href="#slide-8">8</a>
+  <a href="#slide-9">9</a>
+  <a href="#slide-10">10</a>
+  <a href="#slide-11">11</a>
+  <a href="#slide-12">12</a>
+  <a href="#slide-13">13</a>
+  <a href="#slide-14">14</a>
+
+  <div class="slides">
+    <div id="slide-1">
+      <h2>What Is Josephus Problem<h2>
+    </div>
+    <div id="slide-2">
+      <p>Josephus problem is a theoretical math problem. The problem is based on a historical event(?). Josephus and his 40 soldiers were trapped by the Roman soldiers. They don’t want to be captured by the Roman soldiers so they came up with a plan: the 1st person will execute the person next to him, then the person after that will do the same. This will last until only one person is remaining, and he will have to commit suicide. The question is where to stand so that you will be the last person remaining (and surrender to the Romans instead of committing suicide).</p>
+    </div>
+    <div id="slide-3">
+      <h2>Here is an example<h2>
+    </div>
+    <div id="slide-4">
+      <img src="Josephus1.png" alt="step 1">
+    </div>
+    <div id="slide-5">
+      <img src="Josephus2.png" alt="step 2">
+    </div>
+    <div id="slide-6">
+      <img src="Josephus3.png" alt="step 3">
+    </div>
+    <div id="slide-7">
+      <p>The last one survived is position 1.</br>
+      You may have noticed that in the first pass, all the even number position are taken out. This is important because it tells us that the answer must be of a odd number.
+    </p>
+    </div>
+    <div id="slide-8">
+      <p>The best way to approach these kind of problem is to collect data and examine the pattern.</br>
+      Go back to the main page and play the simulator. See if you can spot anything interesting.
+      </br></br>When you are ready, go to the next page. There will be a table of data collected for you.
+    </p>
+    </div>
+    <div id="slide-9">
+      <table class = "dataSet">
+        <tr>
+          <th>[# of People]</th>
+          <th>[Survived]</th>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>...</td>
+          <td>...</td>
+        </tr>
+        <tr>
+          <td>n</td>
+          <td>x</td>
+        </tr>
+      </table>
+    </div>
+    <div id="slide-10">
+      <h2>Notice anything???</h2>
+    </div>
+    <div id="slide-11">
+      <p>If you look closely, you'll find that when the surived position is one, the number of people in the group is alway a power of two.
+      </br>
+      Thus, we may assume n (number of people in total) is associated with the power of 2.
+    </br>In fact, the survivor is determined by the largest power of 2 a number has.
+    </p>
+    </div>
+    <div id="slide-12">
+      <p>If we have 13 people in total, we can rewrite it as 2^3 + 2^2 + 2^0 people in total.
+      </br>After 2^2 + 2^0 people (or 5 people) are killed, there would be 2^3 (8) people left in the circle, and it would be number 11's turn.
+    </br>As we know, in any power of 2, the starter will survive, thus number 11 will survive.
+      </p>
+    </div>
+    <div id="slide-13">
+      <p>Following this pattern, n = 2^a + l (2^a is the biggest power of 2 smaller than n) while l < 2^a.
+      </br> thus the survied position should be 2*l + 1.
+      </p>
+    </div>
+    <div id="slide-14">
+      <table class = "dataSet">
+        <tr>
+          <th>[# of People(n)]</th>
+          <th>[Survived]</th>
+          <th>[Calculation]</th>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>3</td>
+          <td>n = 2 + <font color="red">1</font> thus 2*<font color="red">1</font> + 1 = 3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>1</td>
+          <td>n = 4 + <font color="red">0</font> thus 2*<font color="red">0</font> + 1 = 1</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>3</td>
+          <td>n = 4 + <font color="red">1</font> thus 2*<font color="red">1</font> + 1 = 3</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>5</td>
+          <td>n = 4 + <font color="red">2</font> thus 2*<font color="red">2</font> + 1 = 5</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>7</td>
+          <td>n = 4 + <font color="red">3</font> thus 2*<font color="red">3</font> + 1 = 7</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>1</td>
+          <td>n = 8 + <font color="red">0</font> thus 2*<font color="red">0</font> + 1 = 1</td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
+</li>
+</ul>
+</body>
+</html>
